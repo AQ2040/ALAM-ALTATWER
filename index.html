@@ -1,1 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عالم التطوير | ALAM ALTATWER</title>
+  <meta name="description" content="عالم التطوير لاستيراد الأجهزة الإلكترونية والكهربائية والهواتف وملحقاتها وقطع غيارها.">
+  <meta name="theme-color" content="#195c77">
 
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23195c77'/%3E%3Cpath d='M36 8 17 36h13l-3 20 21-30H35z' fill='white'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap">
+
+  <style>
+    :root {
+      --blue: #195c77;
+      --text: #182d3d;
+      --muted: #576874;
+      --light: #f3f6f8;
+      --border: #dce4e9;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: white;
+      font-family: "Noto Kufi Arabic", Arial, sans-serif;
+      line-height: 1.95;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mark {
+      background: var(--blue);
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+    }
+
+    .brand strong { display: block; font-size: 18px; }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font: 12px Arial, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--blue); }
+
+    .hero {
+      padding: 70px 0;
+      background: var(--light);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .label {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.5;
+      margin: 16px 0;
+    }
+
+    h1 span { color: var(--blue); }
+
+    h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.6;
+      margin: 10px 0 20px;
+    }
+
+    h3 { font-size: 19px; margin: 12px 0; }
+
+    p { color: var(--muted); font-size: 16px; }
+
+    .photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    section { padding: 70px 0; }
+
+    .light { background: #f7f9fa; }
+
+    .box {
+      padding: 30px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+
+    .box p:last-child { margin-bottom: 0; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .card {
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .number {
+      color: var(--blue);
+      font: 700 20px Arial, sans-serif;
+    }
+
+    .card p { font-size: 15px; }
+
+    .categories {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .category {
+      background: var(--light);
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact {
+      background: #edf3f6;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 38px;
+    }
+
+    .contact small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p { font-size: 14px; }
+
+    a:focus-visible {
+      outline: 3px solid #3195b9;
+      outline-offset: 5px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        flex-direction: column;
+        padding: 14px 0;
+        gap: 14px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 18px;
+      }
+
+      .grid { grid-template-columns: 1fr; gap: 30px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 40px 0; }
+      section { padding: 50px 0; }
+      html { scroll-padding-top: 150px; }
+    }
+
+    @media (max-width: 520px) {
+      .cards { grid-template-columns: 1fr; }
+      .categories { grid-template-columns: 1fr; }
+      .contact, .box { padding: 24px; }
+      .actions a { text-align: center; flex: 1; }
+      nav { font-size: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="الصفحة الرئيسية">
+        <span class="mark" aria-hidden="true">ϟ</span>
+        <span>
+          <strong>عالم التطوير</strong>
+          <small dir="ltr">ALAM ALTATWER</small>
+        </span>
+      </a>
+
+      <nav aria-label="القائمة الرئيسية">
+        <a href="#about">من نحن</a>
+        <a href="#services">نشاطنا</a>
+        <a href="#fields">مجالات التوريد</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container grid">
+        <div>
+          <div class="label" dir="ltr">ALAM ALTATWER</div>
+          <h1>عالم التطوير<br><span>للاستيراد والتوريد</span></h1>
+          <p>
+            شركة حديثة التأسيس، نبدأ نشاطنا في استيراد الأجهزة
+            الإلكترونية والهواتف والأجهزة والمواد الكهربائية
+            وملحقاتها وقطع غيارها، ونسعى لبناء علاقات عمل
+            قائمة على الوضوح والثقة.
+          </p>
+
+          <div class="actions">
+            <a class="button" href="#services">استكشف نشاطنا</a>
+            <a class="button secondary" href="#about">تعرّف على الشركة</a>
+          </div>
+        </div>
+
+        <img
+          class="photo"
+          src="https://alam-altatwer.lunar-mars-3151.chatgpt.site/assets/electronics-retail.png"
+          alt="مشهد توضيحي لشاشات ولابتوبات وأجهزة إلكترونية على رفوف عرض"
+          width="1536"
+          height="1024"
+          fetchpriority="high">
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid">
+        <div>
+          <span class="label">من نحن</span>
+          <h2>بداية جديدة، وطموح واضح</h2>
+          <p>
+            تأسست عالم التطوير للعمل في مجال استيراد الأجهزة
+            والمواد الكهربائية والإلكترونية والهواتف.
+            نعمل على تطوير نشاطنا خطوة بخطوة، مع التركيز
+            على فهم متطلبات العملاء واختيار مصادر التوريد المناسبة.
+          </p>
+        </div>
+
+        <div class="box">
+          <h3>أساس تعاملنا</h3>
+          <p>
+            في بداية مسيرتنا، نضع التواصل المباشر والاتفاق
+            الواضح على المواصفات والكميات وشروط التوريد
+            أساسًا لكل تعامل.
+          </p>
+          <p>
+            نهتم بدراسة متطلبات الطلب وإمكانية تلبيتها،
+            وتحديد خطوات الشحن والتسليم قبل الاتفاق.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="light" id="services">
+      <div class="container">
+        <span class="label">نشاط الشركة</span>
+        <h2>مجالات استيراد متكاملة</h2>
+        <p>الكهرباء والإلكترونيات والاتصالات والملحقات وقطع الغيار.</p>
+
+        <div class="cards">
+          <article class="card">
+            <span class="number">01</span>
+            <h3>الأجهزة الإلكترونية</h3>
+            <p>الشاشات والحواسيب والأجهزة اللوحية وتجهيزات التقنية وملحقاتها.</p>
+          </article>
+
+          <article class="card">
+            <span class="number">02</span>
+            <h3>الهواتف وملحقاتها</h3>
+            <p>الهواتف والأجهزة الذكية والسماعات والشواحن والملحقات المرتبطة بها.</p>
+          </article>
+
+          <article class="card">
+            <span class="number">03</span>
+            <h3>الأجهزة والمواد الكهربائية</h3>
+            <p>الأجهزة المنزلية والمواد والتجهيزات الكهربائية للاستخدامات المختلفة.</p>
+          </article>
+
+          <article class="card">
+            <span class="number">04</span>
+            <h3>قطع الغيار والملحقات</h3>
+            <p>المكونات والملحقات وقطع الغيار الكهربائية والإلكترونية بحسب متطلبات الطلب.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fields">
+      <div class="container grid">
+        <img
+          class="photo"
+          src="https://alam-altatwer.lunar-mars-3151.chatgpt.site/assets/electronics-shelves.png"
+          alt="مشهد توضيحي لأجهزة لوحية وسماعات وملحقات إلكترونية على رفوف"
+          width="1536"
+          height="1024"
+          loading="lazy">
+
+        <div>
+          <span class="label">مجالات التوريد</span>
+          <h2>تقنيات وأجهزة لاحتياجات متنوعة</h2>
+          <p>
+            يشمل نطاق نشاطنا الأجهزة الإلكترونية والهواتف،
+            إلى جانب الأجهزة والمواد الكهربائية وقطع الغيار.
+            تُناقش المواصفات والكميات وإمكانية التوريد
+            لكل طلب على حدة.
+          </p>
+
+          <div class="categories">
+            <div class="category">شاشات وحواسيب وأجهزة لوحية</div>
+            <div class="category">هواتف وأجهزة ذكية</div>
+            <div class="category">أجهزة ومواد كهربائية</div>
+            <div class="category">ملحقات وقطع غيار</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="light" id="process">
+      <div class="container">
+        <span class="label">آلية العمل</span>
+        <h2>من الاحتياج إلى التوريد</h2>
+
+        <div class="cards">
+          <div class="card">
+            <span class="number">01</span>
+            <h3>تحديد الاحتياج</h3>
+            <p>فهم نوع الأجهزة والمواد والمواصفات والكميات المطلوبة.</p>
+          </div>
+
+          <div class="card">
+            <span class="number">02</span>
+            <h3>دراسة الخيارات</h3>
+            <p>البحث عن مصادر مناسبة ومناقشة شروط التوريد.</p>
+          </div>
+
+          <div class="card">
+            <span class="number">03</span>
+            <h3>تنسيق الشحن</h3>
+            <p>تحديد إجراءات الشحن والجدول المتوقع وفق الاتفاق.</p>
+          </div>
+
+          <div class="card">
+            <span class="number">04</span>
+            <h3>التسليم والمتابعة</h3>
+            <p>متابعة تنفيذ الطلب ومراحل التسليم المتفق عليها.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <span class="label">تواصل معنا</span>
+          <h2>لنبدأ فرصة عمل جديدة</h2>
+          <p>
+            نرحّب بالتواصل مع العملاء والمورّدين لمناقشة
+            فرص العمل واحتياجات الاستيراد والتوريد.
+          </p>
+          <!-- يمكن إضافة الهاتف وواتساب والبريد هنا لاحقًا -->
+          <small>سيتم الإعلان عن قنوات التواصل الرسمية قريبًا.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>عالم التطوير | ALAM ALTATWER</strong>
+      <p>
+        لاستيراد الأجهزة والمواد الكهربائية والإلكترونية
+        والهواتف وملحقاتها وقطع غيارها
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
